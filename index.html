@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>base-vue</title>
+    <style>
+      ._loading {
+        width: 100vw;
+        height: 100vh;
+        line-height: 100vh;
+        text-align: center;
+      }
+      ._loading img{
+        border-radius: 50%;
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px rgba(0, 0, 0, .14), 0 1px 18px rgba(0, 0, 0, .12)
+      }
+    </style>
+    <link rel="stylesheet" href="/static/pace.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- 应用加载之前等待动画 -->
+      <div class="_loading">
+        <img src="/static/puff.svg">
+      </div>
+    </div>
+    <script data-pace-options='{ "ajax": true ,"trackMethods": ["GET", "POST"]}' src="/static/pace.min.js"></script>
+  </body>
+</html>
