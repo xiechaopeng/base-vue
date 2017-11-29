@@ -1,7 +1,7 @@
 import axios from 'axios'
 // 创建一个axios实例
 const axiosInstance = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? 'http://120.78.85.251:5000' : 'http://192.168.43.217:5000',
+  baseURL: process.env.NODE_ENV === 'production' ? '' : '',
   headers: {
     'Content-Type': 'application/json'
   },
@@ -9,23 +9,11 @@ const axiosInstance = axios.create({
 })
 // 注册请求拦截器
 axiosInstance.interceptors.request.use(config => {
-  config.data = config.data || {}
-  config.data.common = {} // 可加公共参数
+  // config.data = config.data || {}
+  // config.data.common = {} // 可加公共参数
   if (window.localStorage) {
-    if(localStorage.user) {
-      let user = JSON.parse(localStorage.user)
-      if (user.m_token) {
-        config.headers['m_token'] = user.m_token
-      }
-    }
-    if (localStorage.corpid) {
-      config.headers['corpid'] = localStorage.corpid
-    }
-    if (localStorage.corpsecret) {
-      config.headers['corpsecret'] = localStorage.corpsecret
-    }
-    if (localStorage.agentid) {
-      config.headers['agentid'] = localStorage.agentid
+    if(localStorage.token) {
+      config.headers['token'] = localStorage.token
     }
   }
   return config
