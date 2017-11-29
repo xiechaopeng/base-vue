@@ -1,4 +1,9 @@
 import Vue from 'vue'
 
 import ajax from './ajax'
-Vue.use(ajax)
+
+export default {
+  install(Vue) {
+    Vue.use(ajax)
+  }
+}
